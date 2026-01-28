@@ -1,44 +1,60 @@
-import { Box, Button, Typography, Stack } from "@mui/material";
+import { Box, Button, Typography, Stack, Paper } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-
-const styles = {
-      card: {
-        borderRadius: 4,
-        padding: 6,
-        maxWidth: '100%',
-        width: "100%",
-    },
-    title: {
-        fontSize: "6rem",
-        fontWeight: 800,
-        lineHeight: 1,
-        mb: 1,
-    },
-    subtitle: {
-        opacity: 0.9,
-        mb: 3,
-    },
-    button: {
-        borderRadius: 999,
-        px: 3,
-    },
-};
 
 export default function NotFound() {
     const navigate = useNavigate();
 
     return (
-            <Box sx={styles.card}>
-                <Typography sx={styles.title}>404</Typography>
-                <Typography variant="h6" sx={styles.subtitle}>
-                    Oops. This page doesn't exist.
+        <Box
+            sx={{
+                minHeight: "100vh",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                bgcolor: "background.default",
+                px: 2,
+            }}
+        >
+            <Paper
+                elevation={0}
+                sx={{
+                    p: { xs: 4, sm: 6 },
+                    maxWidth: 420,
+                    width: "100%",
+                    textAlign: "center",
+                    borderRadius: 4,
+                    border: "1px solid rgba(255,255,255,0.08)",
+                    bgcolor: "rgba(255,255,255,0.02)",
+                }}
+            >
+                <Typography
+                    sx={{
+                        fontSize: { xs: "4rem", sm: "5rem" },
+                        fontWeight: 900,
+                        lineHeight: 1,
+                        color: "primary.main",
+                    }}
+                >
+                    404
+                </Typography>
+
+                <Typography variant="h6" sx={{ mt: 1, mb: 2, fontWeight: 600 }}>
+                    Page not found
+                </Typography>
+
+                <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    sx={{ mb: 4 }}
+                >
+                    The page you’re looking for doesn’t exist or was moved.
                 </Typography>
 
                 <Stack direction="row" spacing={2} justifyContent="center">
                     <Button
                         variant="outlined"
                         color="inherit"
-                        sx={styles.button}
+                        sx={{ borderRadius: 999, px: 3 }}
                         onClick={() => navigate(-1)}
                     >
                         Go Back
@@ -46,13 +62,13 @@ export default function NotFound() {
 
                     <Button
                         variant="contained"
-                        color="primary"
-                        sx={styles.button}
+                        sx={{ borderRadius: 999, px: 3 }}
                         onClick={() => navigate("/")}
                     >
                         Home
                     </Button>
                 </Stack>
-            </Box>
+            </Paper>
+        </Box>
     );
 }
