@@ -1,0 +1,21 @@
+{
+  "name": "survey-eligibility-flow-builder",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A powerful full-stack application that enables users to visually build survey flows with logic-based eligibility rules.",
+  "scripts": {
+    "dev": "concurrently -c \"cyan,green\" \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\"",
+    "dev:backend": "npm run dev --prefix backend",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "build": "npm run build --prefix backend && npm run build --prefix frontend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ssarthak75way/Survey-Eligibility-Flow-Builder.git"
+  },
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
