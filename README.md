@@ -1,5 +1,4 @@
 #  Survey Eligibility Flow Builder
-
 A powerful **full-stack application** that enables users to visually build **survey flows with logic-based eligibility rules**.  
 It is designed to help researchers, product teams, and market research platforms **screen users accurately before surveys or studies**.
 

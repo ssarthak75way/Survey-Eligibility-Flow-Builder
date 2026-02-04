@@ -25,7 +25,7 @@ const Builder = () => {
         if (!id) return;
         dispatch(setLoading(true));
         try {
-            const response = await axiosInstance.get(`/surveys/${id}`);
+            const response = await axiosInstance.get(`/api/surveys/${id}`);
             dispatch(setCurrentSurvey(response.data));
             setNodes(response.data.nodes || []);
             setEdges(response.data.edges || []);
@@ -44,7 +44,7 @@ const Builder = () => {
     const handleSave = async (updatedNodes: Node[], updatedEdges: Edge[]) => {
         if (!id || !currentSurvey) return;
         try {
-            await axiosInstance.put(`/surveys/${id}`, {
+            await axiosInstance.put(`/api/surveys/${id}`, {
                 title: currentSurvey.title,
                 nodes: updatedNodes,
                 edges: updatedEdges,
@@ -59,7 +59,7 @@ const Builder = () => {
     const handlePublish = async () => {
         if (!id || !currentSurvey) return;
         try {
-            await axiosInstance.put(`/surveys/${id}`, {
+            await axiosInstance.put(`/api/surveys/${id}`, {
                 status: 'published'
             });
             dispatch(setCurrentSurvey({ ...currentSurvey, status: 'published' }));

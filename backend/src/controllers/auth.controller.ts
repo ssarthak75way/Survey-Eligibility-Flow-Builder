@@ -18,6 +18,8 @@ const loginSchema = z.object({
 
 
 export const registerUser = async (req: Request, res: Response, next: NextFunction) => {
+    console.log(req.body);
+    
     try {
         const validatedData = registerSchema.parse(req.body);
         const { name, email, password } = validatedData;
@@ -43,6 +45,8 @@ export const registerUser = async (req: Request, res: Response, next: NextFuncti
         }
     } catch (error) {
         next(error);
+        console.log(error);
+        
     }
 };
 

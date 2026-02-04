@@ -64,7 +64,7 @@ const Dashboard = () => {
         const fetchSurveys = async () => {
             dispatch(setLoading(true));
             try {
-                const response = await axiosInstance.get("/surveys");
+                const response = await axiosInstance.get("/api/surveys");
                 dispatch(setSurveys(response.data));
             } catch (error) {
                 console.error("Error fetching surveys:", error);
@@ -78,7 +78,7 @@ const Dashboard = () => {
 
     const handleCreateSurvey = async () => {
         try {
-            const response = await axiosInstance.post('/surveys', newSurveyData);
+            const response = await axiosInstance.post('/api/surveys', newSurveyData);
             dispatch(addSurvey(response.data));
             setOpenNewDialog(false);
             showToast('Survey created successfully', 'success');
@@ -96,7 +96,7 @@ const Dashboard = () => {
     const handleDeleteSurvey = async () => {
         const { id } = confirmDelete;
         try {
-            await axiosInstance.delete(`/surveys/${id}`);
+            await axiosInstance.delete(`/api/surveys/${id}`);
             dispatch(removeSurvey(id));
             showToast('Survey deleted', 'info');
         } catch (err: unknown) {

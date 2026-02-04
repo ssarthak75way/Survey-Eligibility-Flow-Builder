@@ -21,7 +21,7 @@ const Analytics = () => {
     React.useEffect(() => {
         const fetchAnalytics = async () => {
             try {
-                const response = await axiosInstance.get('/surveys/analytics');
+                const response = await axiosInstance.get('/api/surveys/analytics');
                 setAnalyticsData(response.data);
             } catch (error) {
                 console.error('Error fetching analytics:', error);
